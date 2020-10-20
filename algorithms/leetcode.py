@@ -245,9 +245,38 @@ def generate_parentheses(n):
     return combinations
 
 
-print(generate_parentheses(3))
+# print(generate_parentheses(3))
 
 
+"""
+Swap Nodes in Pairs
+Last Attempted 10.19.20
+Accepted w 20 ms runtime => 99.06th percentile; 14.1 MB memory usage => 99.98th percentile
+"""
+
+
+def swap_pairs(head):
+    if head is None:
+        return None
+    if head.next is None:
+        return head
+    runner = head
+    new_head = runner.next
+    last = None
+    while runner and runner.next:
+        temp = runner
+        next_temp = runner.next.next
+        runner = runner.next
+        runner.next = temp
+        runner.next.next = next_temp
+        if last:
+            last.next = runner
+        last = runner.next
+        runner = runner.next.next
+    return new_head
+
+
+print_linked_list(swap_pairs(list2))
 
 
 
