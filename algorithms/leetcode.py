@@ -276,7 +276,27 @@ def swap_pairs(head):
     return new_head
 
 
-print_linked_list(swap_pairs(list2))
+# print_linked_list(swap_pairs(list2))
+
+
+"""
+Sorted Array
+Last Attempted 10.22.20
+Accepted w 1488ms runtime => 5.08th percentile; 15.7 MB memory usage => 86.08th percentile
+"""
+
+
+def remove_duplicates(nums_list):
+    last = None
+    for i in range(len(nums_list) - 1, -1, -1):
+        if nums_list[i] == last:
+            nums_list.remove(nums_list[i])
+        else:
+            last = nums_list[i]
+    return len(nums_list)
+
+
+# print(removeDuplicates([1, 2, 2, 3, 4, 5, 5, 6, 7, 7, 8]))
 
 
 
